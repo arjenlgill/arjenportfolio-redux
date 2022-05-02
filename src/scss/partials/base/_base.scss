@@ -1,0 +1,27 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  border: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  @include fonts(Jost, $light, 1.6rem);
+  @media (max-width: 737px) {
+    font-size: 1.4rem;
+  }
+  color: $font-col;
+}
+
+#p-index {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: $bg-col;
+  padding-bottom: 100px;
+  position: relative;
+}

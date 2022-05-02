@@ -1,0 +1,42 @@
+// Fonts
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: ($size / 16px) * 1rem;
+}
+
+@mixin fonts($font, $weight, $size) {
+  @if $font == Kayak {
+    font-family: "Kayak", sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+  }
+  @if $font == Noto {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+  }
+  @if $font == Jost {
+    font-family: "Jost", sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+  }
+  @if $font == Kollektif {
+    font-family: "Kollektif", sans-serif;
+    font-weight: $weight;
+    font-size: $size;
+  }
+}
+
+// Grid
+
+@mixin grid($cols, $rows) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+}
+
+@mixin hoverfx() {
+  transform: translate(2%, 2%);
+  transition: transform 0.5s ease-in-out;
+}

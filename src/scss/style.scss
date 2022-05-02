@@ -1,0 +1,22 @@
+/*
+    // Naming convention: GPS.
+
+*/
+
+// Abstracts
+
+@import "partials/abstracts/variables";
+@import "partials/abstracts/mixins";
+@import "partials/abstracts/fonts";
+
+// Base
+
+@import "partials/base/base";
+
+// Global
+
+@import "partials/global/global-scope";
+
+// Page
+
+@import "partials/page/page-scope";

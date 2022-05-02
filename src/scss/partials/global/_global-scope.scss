@@ -1,0 +1,429 @@
+/* 
+Global Scope
+
+    // Should be applied to repeated elements across site, such as buttons, h-tags, and standard boxes.
+    // Should be prefixed with 'g-'.
+    // Can have nested elements within it.
+    // Only nest another global element within a global element if you need to specify style-rules exclusively within that context.
+
+    // Selector: Class.
+
+*/
+
+a:hover {
+  opacity: 0.8;
+}
+
+::selection {
+  background: #1a1710;
+  color: $font-col;
+}
+
+.g-link-no-styling {
+  text-decoration: none;
+  color: $font-col;
+  height: 100%;
+  width: 100%;
+}
+
+h2 {
+  @include fonts(Noto, $bold, 5rem);
+  font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+  @include fonts(Noto, $bold, 3rem);
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+.g-margin {
+  margin-top: 50px;
+}
+
+button {
+  height: 30px;
+  width: 100px;
+  border-radius: 2px;
+  background-color: $black;
+  color: $font-col;
+  cursor: pointer;
+}
+
+.g-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.g-flex-column-center {
+  @extend .g-flex-center;
+  flex-direction: column;
+}
+
+.g-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.g-opacity-transition {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.g-caramel {
+  background-color: $caramel;
+}
+.g-brown {
+  background-color: $brown;
+}
+.g-dark-caramel {
+  background-color: $dark-caramel;
+}
+.g-black {
+  background-color: $black;
+}
+.g-light-caramel {
+  background-color: $light-caramel;
+}
+.g-beige {
+  background-color: $orange;
+}
+.g-light-orange {
+  background-color: $beige;
+  color: $black;
+}
+.g-matte-brown {
+  background-color: $mattebrown;
+}
+
+.g-cherry-red {
+  background-color: $cherry-red;
+}
+
+.g-amber {
+  background-color: #ff8300;
+}
+
+.g-pink {
+  background-color: #7e1b32;
+}
+.g-mint-green {
+  background-color: #6ca282;
+}
+
+.g-orange {
+  background-color: #d1714b;
+}
+
+//Header & navbar
+
+/*.g-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+
+  /*@media (max-width: 440px){
+    .g-icons {
+      position: absolute;
+
+    }
+  }
+}*/
+
+/*.g-menu {
+  a {
+    color: red;
+    text-decoration: none;
+    list-style-type: none;
+  }
+}*/
+
+//Navbar
+.g-navbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  //background-color: #221f1c;
+  background-color: $black;
+
+  h1 {
+    @include fonts(Jost, $medium, 1.2rem);
+    font-style: italic;
+    text-transform: none;
+    padding-left: 5px;
+  }
+
+  .g-flex-ct {
+    display: flex;
+    align-items: center;
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .g-devtool-block {
+    position: relative;
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto;
+    height: 40px;
+
+    .g-vscrollbar {
+      background-color: orange;
+      height: 100%;
+      width: 2px;
+      position: absolute;
+      left: 0;
+      z-index: 2;
+
+      @media (max-width: 737px) {
+        display: none;
+      }
+    }
+
+    .g-grid-space {
+      grid-column: 1/2;
+      user-select: none;
+    }
+
+    .g-devtool-sqr-container {
+      grid-column: 2/3;
+      display: flex;
+      div {
+        height: 100%;
+        width: 75px;
+        padding: 2.5px;
+        margin-right: 50px;
+        font-weight: $bold;
+        border-radius: 2px;
+        z-index: 1;
+        transition: border 0.5s ease;
+        user-select: none;
+
+        @media (max-width: 737px) {
+          cursor: pointer;
+          user-select: unset;
+        }
+      }
+      .g-pg-module-trigger {
+        @include fonts(Noto, $bold, 1.4rem);
+        background-color: $maroon;
+        color: $black;
+      }
+
+      #lcp {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.g-icons {
+  padding-right: 5px;
+  @include fonts(Jost, $light, 1.2rem);
+  a {
+    text-decoration: none;
+    list-style-type: none;
+    color: $font-col;
+  }
+}
+
+.g-pg-module {
+  height: auto;
+  min-height: 100vh;
+  width: 0%;
+  display: block;
+  transition: width 1s ease;
+  color: $font-col;
+  position: absolute;
+
+  h2 {
+    transition: block 1s ease;
+    @media (min-width: 400px) {
+      font-size: 4rem;
+    }
+    text-transform: uppercase;
+  }
+}
+
+.g-section-module {
+  padding: 5% 20%;
+  @media (min-width: 1600px) {
+    padding: 5% 25%;
+  }
+  @media (max-width: 737px) {
+    padding: 5% 5%;
+  }
+
+  & > * {
+    margin-bottom: 50px;
+  }
+
+  & > h2 {
+    margin-bottom: 0px;
+  }
+
+  /*& > p {
+    @media (min-width: 1500px) {
+      width: 80%;
+    }
+  }*/
+}
+
+.g-backtotop {
+  height: 70px;
+  width: 70px;
+  border-radius: 67% 33% 0% 100% / 20% 85% 15% 80%;
+  background: linear-gradient($maroon, $darkmaroon);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+}
+
+.g-mob-footer {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  @media (max-width: 500px) {
+    display: block;
+  }
+}
+
+.g-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  @media (max-width: 850px) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, auto);
+  }
+}
+
+.g-fields {
+  position: relative;
+  color: white;
+  width: 100%;
+  height: 100%;
+
+  & p {
+    position: absolute;
+    font-size: 1.2rem;
+    padding: 2px;
+    bottom: 0;
+    right: 0;
+    background-color: $black;
+    border-radius: 2px;
+    margin: 0 !important;
+  }
+}
+
+.g-hoverfx {
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    @include hoverfx();
+  }
+}
+
+.g-portfolio-header-capsule {
+  height: 100px;
+  background-color: $text-col;
+  position: relative;
+  margin-bottom: 10px;
+  h1 {
+    position: absolute;
+    color: $font-col;
+    margin: 10px;
+    z-index: 11;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+
+  .g-vscrollbar {
+    left: 50% !important;
+    top: 0;
+    height: 110%;
+    display: block;
+  }
+
+  .g-fields {
+    position: absolute;
+    bottom: 0;
+    z-index: 13;
+  }
+}
+
+#portfolio-brief {
+  margin-bottom: 0;
+  z-index: 10;
+  padding: 10px;
+  position: relative;
+  h3 {
+    margin-right: 10px;
+    text-align: center;
+    color: $font-col !important; //revise these rules
+  }
+}
+
+#portfolio-main-content {
+  background-color: black;
+  padding-bottom: 0;
+  padding: 10px;
+  margin-bottom: 0; //hoist
+  h3 {
+    color: $font-col !important;
+  }
+  img {
+    align-self: center;
+  }
+} //hoist where necessary; remove all !important rules
+
+.g-vscrollbar {
+  background-color: orange;
+  height: 100%;
+  width: 2px;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+
+  @media (max-width: 737px) {
+    display: none;
+  }
+}
+
+#more-portfolio-pieces {
+  padding-top: 0;
+}
+
+.g-pg-module-active {
+  width: 100%;
+  display: block;
+}
+
+.g-opacity > section {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.g-pg-module-trigger-active {
+  border: 1px solid $darksalmon;
+}
