@@ -46,22 +46,6 @@ module.exports = {
       filename: 'pushproductpunjab.html',
       template: "src/html/pushproductpunjab.html"
     }),
-    new HtmlWebpackPlugin({
-      filename: 'bioprocessing-client.html',
-      template: "src/html/bioprocessing-client.html"
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'affiliate-marketing-client.html',
-      template: "src/html/affiliate-marketing-client.html"
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'somfy.html',
-      template: "src/html/somfy.html"
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'autotechnik.html',
-      template: "src/html/autotechnik.html"
-    }),
     new CompressionPlugin(),
     new HtmlCriticalWebpackPlugin({
       base: path.resolve(__dirname, 'dist'),
